@@ -52,8 +52,8 @@ header {
 }
 
 .wrapper {
-  max-width: 100%;
-  margin: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .header_block {
@@ -137,6 +137,7 @@ header {
 .hero_heading {
   font-size: 60px;
   line-height: 120px;
+  font-family: var(--merri-font-family);
 }
 
 .text {
@@ -156,7 +157,7 @@ header {
 .portfolio_block {
   display: flex;
   flex-direction: column;
-  margin-top: 100px;
+  padding: 100px 0;
 }
 
 .seasons {
@@ -166,6 +167,7 @@ header {
 }
 
 .portfolio_heading {
+  font-family: var(--merri-font-family);
   text-align: center; 
   border-bottom: 1px solid var(--orange); 
   line-height: 0.1em;
@@ -207,7 +209,7 @@ header {
 
 .portfolio_list {
   display: grid;
-  grid-template-columns: repeat(3, 450px);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
   grid-gap: 25px;
@@ -216,4 +218,66 @@ header {
 .portfolio_item, .portfolio_img {
   width: 450px;
   height: 560px;
+}
+
+.contacts {
+  background: url(./assets/images/contacts.jpg)no-repeat center;
+  background-size: cover;
+  height: 100vh;
+}
+
+.contacts_block {
+  display: flex;
+  justify-content: end;
+}
+
+.contacts_content {
+  width: 450px;
+  flex-direction: column;
+  padding-top: 60px;
+  width: fit-content;
+}
+
+.contacts_heading {
+  font-family: var(--merri-font-family);
+  font-size: 40px;
+  line-height: 80px;
+  color: var(--orange);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 450px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--orange);
+}
+
+input::placeholder {
+  padding-left: 20px;
+  color: var(--orange);
+  line-height: 40px;
+}
+
+#email, #tel {
+  height: 50px;
+}
+
+#message {
+  height: 100px;
+}
+
+#tel {
+  margin: 20px 0;
+}
+
+.form_btn {
+  background-color: var(--orange);
+  line-height: 40px;
+  margin-top: 30px;
+  font-family: var(--inter-font-family);
+  font-size: 20px;
 }
