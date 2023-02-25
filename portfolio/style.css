@@ -2,7 +2,7 @@
   --merri-font-family: 'Merriweather', serif;
   --inter-font-family: 'Inter', sans-serif;
   --white: #fff;
-  --orange: #BDAE82;
+  --gold: #BDAE82;
   --black: #000;
 }
 
@@ -109,7 +109,7 @@ header {
 }
 
 .item_link:hover {
-  color: var(--orange);
+  color: var(--gold);
   transition: color 0.6s ease;
 }
 
@@ -145,7 +145,7 @@ header {
 }
 
 .hero_button {
-  background: #BDAE82;
+  background: var(--gold);
   line-height: 40px;
   font-size: 20px;
   color: var(--black);
@@ -166,19 +166,52 @@ header {
   align-items: center;
 }
 
-.portfolio_heading {
+.portfolio_heading, .skills_heading {
   font-family: var(--merri-font-family);
   text-align: center; 
-  border-bottom: 1px solid var(--orange); 
+  border-bottom: 1px solid var(--gold); 
   line-height: 0.1em;
   text-align: center;
   width: 700px;
 }
 
-.portfolio_heading span {
-  color: var(--orange); 
+.portfolio_heading span,
+.skills_heading span {
+  color: var(--gold); 
   padding: 0 10px; 
   background-color: var(--black);
+}
+
+.skills_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+}
+
+.skills_list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 40px;
+  padding-top: 60px;
+}
+
+.skills_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill_title {
+  margin: 50px 0 20px;
+  line-height: 40px;
+  font-weight: 700;
+}
+
+.skill_text {
+  text-align: center;
 }
 
 .seasons_buttons {
@@ -188,10 +221,10 @@ header {
 }
 
 .season {
-  border: 2px solid var(--orange);
+  border: 2px solid var(--gold);
   left: calc(50% - 81px/2 - 0.5px);
   top: calc(50% - 40px/2 + 0.5px);
-  color: var(--orange);
+  color: var(--gold);
   text-align: center;
   margin-right: 5px;
   font-size: 20px;
@@ -203,7 +236,7 @@ header {
 }
 
 .active_season {
-  background-color: var(--orange);
+  background-color: var(--gold);
   color: var(--black);
 }
 
@@ -242,7 +275,7 @@ header {
   font-family: var(--merri-font-family);
   font-size: 40px;
   line-height: 80px;
-  color: var(--orange);
+  color: var(--gold);
 }
 
 form {
@@ -253,12 +286,12 @@ form {
 input {
   width: 450px;
   background: rgba(0, 0, 0, 0.5);
-  border: 2px solid var(--orange);
+  border: 2px solid var(--gold);
 }
 
 input::placeholder {
   padding-left: 20px;
-  color: var(--orange);
+  color: var(--gold);
   line-height: 40px;
 }
 
@@ -275,7 +308,7 @@ input::placeholder {
 }
 
 .form_btn {
-  background-color: var(--orange);
+  background-color: var(--gold);
   line-height: 40px;
   margin-top: 30px;
   font-family: var(--inter-font-family);
