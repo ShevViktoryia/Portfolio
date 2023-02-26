@@ -46,7 +46,7 @@ body {
   background-color: #000;
 }
 
-main {
+main, footer {
   width: 100%;
 }
 
@@ -311,6 +311,9 @@ header .header_menu {
   align-items: center;
   justify-content: end;
 }
+.contacts .contacts_block .contacts_content {
+  margin-top: 60px;
+}
 .contacts .contacts_block .contacts_heading {
   font-family: Merriweather, serif;
   font-size: 40px;
@@ -349,4 +352,34 @@ header .header_menu {
 }
 .contacts form .form_btn {
   margin-top: 30px;
+}
+
+.footer_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 0;
+}
+.footer_content a {
+  line-height: 50px;
+  color: #fff;
+  cursor: pointer;
+}
+.footer_content a:hover {
+  color: #BDAE82;
+}
+.footer_content .links_list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+.footer_content .links_list .link {
+  cursor: pointer;
+  margin-right: 20px;
+}
+.footer_content .links_list .link:last-child {
+  margin-right: 0;
 }/*# sourceMappingURL=style.css.map */
