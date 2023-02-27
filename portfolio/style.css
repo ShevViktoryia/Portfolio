@@ -15,7 +15,7 @@ button {
   background: #BDAE82;
   line-height: 40px;
   font-size: 20px;
-  color: v#000;
+  color: #000;
   border: none;
   width: 220px;
   height: 55px;
@@ -44,6 +44,7 @@ body {
   line-height: 40px;
   color: #fff;
   background-color: #000;
+  cursor: default;
 }
 
 main, footer {
@@ -104,6 +105,44 @@ header .header_menu {
   justify-content: space-between;
   flex: 1;
   padding: 20px 0;
+}
+
+.burger_menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  width: 50px;
+  height: 28px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.burger_menu:hover {
+  filter: drop-shadow(0 0 0.2rem var(--black));
+  transition: 0.9s ease;
+}
+
+.burger_menu li {
+  display: block;
+  position: relative;
+  height: 0px;
+  width: 100%;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.6s ease-in-out;
+  border-top: 2px solid var(--text-color);
+}
+
+.burger_menu > li:nth-child(1) {
+  top: -1px;
+}
+
+.burger_menu > li:nth-child(2) {
+  top: 5px;
+}
+
+.burger_menu > li:nth-child(3) {
+  top: 11px;
 }
 
 .nav_list {
@@ -264,7 +303,7 @@ header .header_menu {
 }
 .price_block .price_list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 450px);
   align-items: center;
   justify-content: center;
   grid-column-gap: 25px;
@@ -275,7 +314,6 @@ header .header_menu {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 450px;
   border: 3px solid #BDAE82;
   padding: 43px 0;
 }
@@ -320,37 +358,38 @@ header .header_menu {
   line-height: 80px;
   color: #BDAE82;
 }
-.contacts form {
+
+form {
   display: flex;
   flex-direction: column;
   align-items: align-items;
   justify-content: justify-content;
 }
-.contacts form input {
+form input {
   width: 450px;
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid #BDAE82;
 }
-.contacts form input::-moz-placeholder {
+form input::-moz-placeholder {
   padding-left: 20px;
   color: #BDAE82;
   line-height: 40px;
 }
-.contacts form input::placeholder {
+form input::placeholder {
   padding-left: 20px;
   color: #BDAE82;
   line-height: 40px;
 }
-.contacts form #email, .contacts form #tel {
+form #email, form #tel {
   height: 50px;
 }
-.contacts form #message {
+form #message {
   height: 100px;
 }
-.contacts form #tel {
+form #tel {
   margin: 20px 0;
 }
-.contacts form .form_btn {
+form .form_btn {
   margin-top: 30px;
 }
 
@@ -382,4 +421,180 @@ header .header_menu {
 }
 .footer_content .links_list .link:last-child {
   margin-right: 0;
+}
+
+.popup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.701);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 3;
+  visibility: hidden;
+  transition: 0.8s;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.popup.opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup_content {
+  max-width: 700px;
+  background-color: #000;
+  padding: 30px;
+  z-index: 5;
+  position: relative;
+}
+
+.close_popup {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-decoration: none;
+  color: #fff;
+  background-color: #000;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    width: 364px;
+  }
+  .nav_list {
+    display: none;
+  }
+  .burger_menu {
+    display: inline-block;
+    z-index: 7;
+    position: relative;
+  }
+  .header_nav.open .burger_menu {
+    position: fixed;
+    right: 15px;
+  }
+  .header_nav.open .burger_menu > li:first-child {
+    transform: rotate(-135deg);
+  }
+  .header_nav.open .burger_menu > li:nth-child(2),
+  .header_nav.open .burger_menu > li:nth-child(3) {
+    display: none;
+  }
+  .header_nav.open .burger_menu > li:last-child {
+    transform: rotate(135deg);
+    top: -1px;
+  }
+  .nav_list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    margin: 0;
+    z-index: 3;
+    padding-top: 85px;
+    top: 0;
+    right: 0;
+    float: none;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    transform: translateX(100%);
+    transition: transform 2s ease;
+    background: #000;
+    box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+  }
+  .header_nav.open > .nav_list {
+    transform: translateX(0%);
+    transition: transform 2s ease;
+  }
+  .hero_block {
+    top: 168px;
+  }
+  .hero_block h1 {
+    font-size: 32px;
+    line-height: 64px;
+  }
+  .hero_block .text {
+    line-height: 24px;
+    margin-top: 20px;
+  }
+  .hero_block .hero_button {
+    width: 219px;
+    height: 54px;
+    margin-top: 60px;
+  }
+  .portfolio_list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 0px;
+    grid-row-gap: 25px;
+  }
+  .seasons_buttons {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 0px;
+    grid-row-gap: 5px;
+  }
+  .price_list {
+    display: grid;
+    grid-template-columns: repeat(1, 420px) !important;
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 0px;
+    grid-row-gap: 50px;
+  }
+  .skills_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    grid-column-gap: 44px;
+    grid-row-gap: 36px;
+  }
+  .skills_list .skill_text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .contacts_block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center !important;
+  }
+  .footer_content {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer_content .links_list {
+    padding-left: 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+  }
+  .contacts_heading {
+    text-align: center !important;
+  }
 }/*# sourceMappingURL=style.css.map */
