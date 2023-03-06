@@ -1,3 +1,30 @@
+function hoverImg(elem, src1, src2) {
+  elem.addEventListener('mouseover', () => {
+    elem.setAttribute('src', src1);
+  });
+  elem.addEventListener('mouseout', () => {
+    elem.setAttribute('src', src2);
+  });
+}
+
+//burger menu
+let burger_menu = document.querySelector(".burger_menu");
+let menu = document.querySelector(".header_nav");
+let blackout = document.querySelector('.blackout');
+
+burger_menu.onclick = () => {
+  menu.classList.toggle('open');
+  menu.classList.contains('open') ? blackout.style.display = 'block' : blackout.style.display = 'none';
+}
+
+blackout.onclick = () => {
+  if(menu.classList.contains('open')) {
+    menu.classList.remove('open');
+    blackout.style.display = 'none';
+  }
+}
+
+//popup
 let hero_button = document.querySelector('.hero_button');
 let popup = document.querySelector('.popup');
 let portfolio_list = document.querySelector('.portfolio_list');
@@ -91,3 +118,46 @@ portfolio_list.addEventListener('click', e => {
     });
   }
 });
+
+//header logo
+let header_logo = document.querySelector('#header_logo');
+hoverImg(header_logo, './assets/icons/logo_hover.svg', './assets/icons/logo_1.svg');
+
+//change lang
+let lang_ru = document.querySelector('.lang_ru');
+let lang_en = document.querySelector('.lang_en');
+
+lang_en.onclick = () => {
+  if(!lang_en.classList.contains('active_lang')) {
+    lang_en.classList.add('active_lang');
+    lang_ru.classList.remove('active_lang');
+  }
+}
+
+lang_ru.onclick = () => {
+  if(!lang_ru.classList.contains('active_lang')) {
+    lang_ru.classList.add('active_lang');
+    lang_en.classList.remove('active_lang');
+  }
+}
+
+//seasons_buttons
+let seasons_buttons = document.querySelector('.seasons_buttons');
+seasons_buttons.onclick = (e) => {
+  [...seasons_buttons.children].map(item => item.classList.remove('active_season'));
+  e.target.classList.add('active_season');
+}
+
+//video player
+let play_btn = document.querySelector('.play_btn');
+hoverImg(play_btn, './assets/icons/play_hover.svg', './assets/icons/play.svg');
+
+let instagram = document.querySelector('.instagram');
+let facebook = document.querySelector('.facebook');
+let twitter = document.querySelector('.twitter');
+let pinterest = document.querySelector('.pinterest');
+
+hoverImg(instagram, './assets/icons/inst_hover.svg', './assets/icons/inst.svg');
+hoverImg(facebook, './assets/icons/fb_hover.svg', './assets/icons/fb.svg');
+hoverImg(twitter, './assets/icons/tw_hover.svg', './assets/icons/tw.svg');
+hoverImg(pinterest, './assets/icons/pinterest_hover.svg', './assets/icons/pinterest.svg');
